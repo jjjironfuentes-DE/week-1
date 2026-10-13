@@ -65,3 +65,11 @@ print(df.groupby("Team")["Salary"].sum().idxmax())
 
 # 24. Position with the highest average salary
 print(df.groupby("Position")["Salary"].mean().idxmax())
+
+#Find the average salary per team.
+avg_salary_per_team = df.groupby("Team")["Salary"].mean().round(2)
+print(f"avg_salary_per_team: {avg_salary_per_team}")
+
+#Create a new column Salary_in_Millions (Salary / 1000000). 
+df["Salary_in_Millions"] = df["Salary"] / 1000000
+print(df[["Salary", "Salary_in_Millions"]])
